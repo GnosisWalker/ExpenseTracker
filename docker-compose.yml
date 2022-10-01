@@ -1,0 +1,13 @@
+version: '2'
+services:
+  server:
+    build:
+      context: ./backend/
+    command: /usr/app/node_modules/.bin/nodemon src/index.js
+    volumes:
+      - ./backend/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=development
